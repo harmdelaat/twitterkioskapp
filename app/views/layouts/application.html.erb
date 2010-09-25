@@ -45,19 +45,6 @@
     <div id="content">
       <% if user_signed_in? or params[:controller].include?('devise') %>
         <%= yield %>
-      <% else %>
-        <div id="logo">
-          <%= image_tag "twitter_kiosk.png" %>
-        </div>
-        <div id="intro_text">
-              <h1>Welcome to TwitterKioskApp! Build yours in just one minute!</h1>  
-          <p>Did you ever wanted to setup a big screen monitor and display your tweets? Now you can! With TwitterKioskApp you will have your Twitter timeline setup for displaying in no time! You can choose your personal background image and many effects are available. Best of all, TwitterKioskApp is totally free!
-            </p>
-            <p>
-              <a href="/users/sign_up" id="signup_submit">Sign up now</a>
-            </p>
-        </div>
-        <div style="clear:both"></div>
       <% end %>
   </div>
   

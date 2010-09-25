@@ -61,7 +61,7 @@ WillemTwitter::Application.routes.draw do
     get 'get_tweets', :on => :collection
   end
     
-  root :to => "kiosks#index"
+  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 
