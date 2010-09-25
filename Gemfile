@@ -11,6 +11,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'formtastic', '~> 1.1.0'
 gem 'aws-s3'
+gem 'jrails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
