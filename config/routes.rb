@@ -2,6 +2,9 @@ WillemTwitter::Application.routes.draw do
   resources :kiosks
 
   devise_for :users
+  match 'users/connect' => "users#connect", :as => :connect
+  match 'users/auth' => "users#auth", :as => :auth
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

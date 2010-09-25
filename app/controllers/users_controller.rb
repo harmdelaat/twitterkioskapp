@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   
   
   def auth
+    begin
     @access_token = @client.authorize(
          session[:request_token],
          session[:request_token_secret],
