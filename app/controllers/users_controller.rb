@@ -21,6 +21,7 @@ class UsersController < ApplicationController
          :oauth_verifier => params[:oauth_verifier]
        )
      rescue OAuth::Unauthorized
+       logger.info("Cannot log in")
      end
 
      if @client.authorized?
