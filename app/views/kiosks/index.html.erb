@@ -3,6 +3,8 @@
 <% else %>
   <p>You need to login into Twitter. <%= link_to "Sign in now!", connect_url %></p>
 <% end %>
+
+<% if @kiosks.size > 0 %>
 <h1>Listing kiosks</h1>
 
 <div class="table">
@@ -28,3 +30,9 @@
 
   <%= link_to 'New Kiosk', new_kiosk_path %>
 </div>
+<% else %>
+  <h2>Welcome to TwitterKioskApp!</h2>
+  <p>
+    Thank you for registering. You can start creating your first kiosk right away! Click <%= link_to "here", new_kiosk_path %> to create your first kiosk.
+  </p>
+<% end %>
