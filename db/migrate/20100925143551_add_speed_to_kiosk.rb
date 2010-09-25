@@ -1,6 +1,6 @@
 class AddSpeedToKiosk < ActiveRecord::Migration
   def self.up
-    add_column :kiosks, :speed, :integer, :default => 3
+    add_column :kiosks, :speed, :integer, :default => 4000
   end
 
   def self.down
