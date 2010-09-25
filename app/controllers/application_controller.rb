@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  after_sign_in_path_for kiosks_url
+  after_sign_in_path_for "/kiosks"
   
   
   protected
