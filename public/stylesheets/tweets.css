@@ -280,43 +280,6 @@ button {  width: auto; overflow: visible; }
 }
 
 
-#background {
-    width: 100%; 
-    height: 100%; 
-    position: fixed; 
-    left: 0px; 
-    top: 0px; 
-    z-index: -1;
-}
-
-.stretch {
-    width:100%;
-    height:100%;
-}
-
-#tweets {
-  width: 100%;
-  height: 800px;
-  font-family:"Arial", Sans-serif;
-  font-size: 4.5em;
-}
-
-#tweets .tweet {
-  background-color: white;
-  margin: 50px;
-  padding: 30px;
-  -moz-box-shadow: 10px 5px 5px black;
-  -webkit-box-shadow: 10px 5px 5px black;
-  border: 3px solid black;
-}
-#tweets .name {
-  color:red;
-}
-
-#tweets .text {
-  color: gray;
-  margin-left: 20px;
-}
 
 #nav {  
     width: 100%;

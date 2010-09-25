@@ -13,11 +13,12 @@ class KiosksController < ApplicationController
   # GET /kiosks/1
   # GET /kiosks/1.xml
   def show
+    
     if @client.authorized?
       @kiosk = Kiosk.find(params[:id])
 
       respond_to do |format|
-        format.html # show.html.erb
+        format.html { render :layout => "kiosk" } # show.html.erb
         format.xml  { render :xml => @kiosk }
       end
     else
