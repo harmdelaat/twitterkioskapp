@@ -43,13 +43,8 @@
   </div>
   
     <div id="content">
-      <% if user_signed_in? or params[:controller].include?('devise') %>
-        <%= yield %>
-      <% end %>
-  </div>
-  
-
-  
+      <%= yield %>
+    </div>
   
 </body>
 </html>
