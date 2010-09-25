@@ -1,0 +1,23 @@
+<h1>Listing kiosks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @kiosks.each do |kiosk| %>
+  <tr>
+    <td><%=h kiosk.name %></td>
+    <td><%= link_to 'Show', kiosk %></td>
+    <td><%= link_to 'Edit', edit_kiosk_path(kiosk) %></td>
+    <td><%= link_to 'Destroy', kiosk, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Kiosk', new_kiosk_path %>
