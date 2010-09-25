@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   
   
   def connect
-    request_token = @client.request_token(
-        :oauth_callback => "http://twitterkiosk.heroku.com/users/auth"
+      request_token = @client.request_token(
+        :oauth_callback => "http://twitterkioskapp.com/users/auth"
       )
       session[:request_token] = request_token.token
       session[:request_token_secret] = request_token.secret
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   
   def auth
     begin
-    @access_token = @client.authorize(
+      @access_token = @client.authorize(
          session[:request_token],
          session[:request_token_secret],
          :oauth_verifier => params[:oauth_verifier]
