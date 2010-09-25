@@ -21,7 +21,7 @@ class KiosksController < ApplicationController
         format.xml  { render :xml => @kiosk }
       end
     else
-      redirect_to connent_url
+      redirect_to connect_url
     end
   end
 

@@ -3,11 +3,6 @@ class TweetsController < ApplicationController
   
   def get_tweets
     begin
-      # client = TwitterOAuth::Client.new(
-      #         :consumer_key => APP_CONFIG["twitter"]["consumer_key"],
-      #         :consumer_secret => APP_CONFIG["twitter"]["consumer_secret"],
-      #         :token => APP_CONFIG["twitter"]["token"],
-      #         :secret => APP_CONFIG["twitter"]["secret"])
       @tweets = @client.friends_timeline
     rescue
       return "Twitter feed temporarily unavailable."
