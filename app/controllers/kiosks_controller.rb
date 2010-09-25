@@ -5,7 +5,7 @@ class KiosksController < ApplicationController
   before_filter :set_client
   
   def index
-    @kiosks = Kiosk.all
+    @kiosks = current_user.kiosks.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,7 +38,7 @@ class KiosksController < ApplicationController
   # GET /kiosks/new
   # GET /kiosks/new.xml
   def new
-    @kiosk = Kiosk.new
+    @kiosk = current_user.kiosks.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,13 +48,13 @@ class KiosksController < ApplicationController
 
   # GET /kiosks/1/edit
   def edit
-    @kiosk = Kiosk.find(params[:id])
+    @kiosk = current_user.kiosks.find(params[:id])
   end
 
   # POST /kiosks
   # POST /kiosks.xml
   def create
-    @kiosk = Kiosk.new(params[:kiosk])
+    @kiosk = current_user.kiosks.new(params[:kiosk])
 
     respond_to do |format|
       if @kiosk.save
@@ -70,7 +70,7 @@ class KiosksController < ApplicationController
   # PUT /kiosks/1
   # PUT /kiosks/1.xml
   def update
-    @kiosk = Kiosk.find(params[:id])
+    @kiosk = current_user.kiosks.find(params[:id])
     
     respond_to do |format|
       if @kiosk.update_attributes(params[:kiosk])
@@ -86,7 +86,7 @@ class KiosksController < ApplicationController
   # DELETE /kiosks/1
   # DELETE /kiosks/1.xml
   def destroy
-    @kiosk = Kiosk.find(params[:id])
+    @kiosk = current_user.kiosks.find(params[:id])
     @kiosk.destroy
 
     respond_to do |format|
