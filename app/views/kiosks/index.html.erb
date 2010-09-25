@@ -1,3 +1,8 @@
+<% if @client.authorized? %>
+  <p>You have been logged into Twitter. Your twitter account is: <%= @client.info["name"] %></p>
+<% else %>
+  <p>You need to login into Twitter. <%= link_to "Sign in now!", connect_url %></p>
+<% end %>
 <h1>Listing kiosks</h1>
 
 <div class="table">

@@ -3,14 +3,6 @@ class TweetsController < ApplicationController
   
   def get_tweets
     @kiosk = Kiosk.find(params[:id])
-    if Rails.env == "development"
-      @client = TwitterOAuth::Client.new(
-        :consumer_key => APP_CONFIG["twitter"]["consumer_key"],
-        :consumer_secret => APP_CONFIG["twitter"]["consumer_secret"],
-        :token => APP_CONFIG["twitter"]["token"],
-        :secret => APP_CONFIG["twitter"]["secret"])
-    end
-      
     begin  
       @tweets = @client.friends_timeline
     rescue
