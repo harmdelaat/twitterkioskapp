@@ -1,7 +1,7 @@
 class KiosksController < ApplicationController
   # GET /kiosks
   # GET /kiosks.xml
-  
+  before_filter :authenticate_user!
   before_filter :set_client
   
   def index
