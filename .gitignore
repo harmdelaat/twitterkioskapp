@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 
 config/application.yml
+config/s3.yml
