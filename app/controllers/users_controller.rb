@@ -24,6 +24,7 @@ class UsersController < ApplicationController
          # in this session.  In a larger app you would probably persist these details somewhere.
          session[:access_token] = @access_token.token
          session[:secret_token] = @access_token.secret
+         flash[:notice] = "You are now authenticated using OAuth for Twitter. Click show to start kiosk!"
          redirect_to '/kiosks'
        else
          redirect_to '/'

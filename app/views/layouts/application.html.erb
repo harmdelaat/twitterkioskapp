@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WillemTwitter</title>
+  <title>TwitterKiosk</title>
   <%= stylesheet_link_tag "tweets.css" %>
+  <%= stylesheet_link_tag "tables.css" %>
+  <%= formtastic_stylesheet_link_tag %>
   <%= javascript_include_tag "jquery-1.4.2.min.js" %>
   <%= javascript_include_tag "jquery.cycle.all.min.js" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="nav">  
+    <ul>
+      <li><a href="/">Home</a></li>
+      
+      <% if user_signed_in? %>  
+        <li><a href="/kiosks">Kiosks</a></li>
+        <li><a href="/users/sign_out">Logout</a></li>
+      <% else %>
+        <li><a href="/users/sign_up">Sign up</a></li>
+        <li><a href="/users/sign_in">Log in</a></li>
+      <% end %>
+    </ul>
+    <div style="clear:both"></div>
+  </div>
+  
+    <div id="content">
+      <% if user_signed_in? or params[:controller].include?('devise') %>
+        <%= yield %>
+      <% else %>
+        <div id="logo">
+          <%= image_tag "twitter_kiosk.png" %>
+        </div>
+        <div id="intro_text">
+              <h1>Welcome to TwitterKiosk! Build yours in just one minute!</h1>  
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+            </p>
+            <p>
+              <a href="/users/sign_up" id="signup_submit">Sign up now</a>
+            </p>
+        </div>
+        <div style="clear:both"></div>
+      <% end %>
+  </div>
+  
 
-<%= yield %>
-
+  
+  
 </body>
 </html>
