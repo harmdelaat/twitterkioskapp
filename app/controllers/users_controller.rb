@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  
+  before_filter :set_client
+  
+  
   def connect
     request_token = @client.request_token(
         :oauth_callback => "http://twitterkiosk.heroku.com/users/auth"

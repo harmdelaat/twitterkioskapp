@@ -1,6 +1,9 @@
 class TweetsController < ApplicationController
   require 'twitter_oauth'
   
+  before_filter :set_client
+  
+  
   def get_tweets
     @kiosk = Kiosk.find(params[:id])
     begin  
@@ -18,4 +21,6 @@ class TweetsController < ApplicationController
       }
     end
   end
+  
+  
 end
