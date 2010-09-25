@@ -11,17 +11,20 @@ function displayTweets() {
   $.ajax({
     url: "/tweets/get_tweets",
     dataType: 'json',
+    data:"id=<%= @kiosk.id %>",
     success: function(tweets) {
       var data = "";
       for(i = 0; i < tweets.length; i++) {
         data += "<div class='tweet'><span class='name'>" + tweets[i][0] + "</span><span class='text'>" + tweets[i][1] + "</span></div>";
       }
+      
       $("#tweets").html(data);
       $('#tweets').cycle({ 
-        fx:     'scrollDown,fade,scrollUp,shuffle', 
+        fx:     '<%= @kiosk.fxs.size > 0 ? @kiosk.fxs.map(&:name).join(",") : "fade" %>', 
         continuous: false,
         autostop: true,
         autostopCount: tweets.length,
+        timeout: <%= @kiosk.speed.blank? ? 4000 : @kiosk.speed %>,
         end: displayTweets
       });
     }

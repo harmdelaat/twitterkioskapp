@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925094959) do
+ActiveRecord::Schema.define(:version => 20100925143551) do
+
+  create_table "fxes", :force => true do |t|
+    t.string   "name"
+    t.integer  "kiosk_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "kiosks", :force => true do |t|
     t.string   "name"
@@ -20,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20100925094959) do
     t.string   "background_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "speed",                   :default => 3
   end
 
   create_table "users", :force => true do |t|

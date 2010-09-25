@@ -13,16 +13,22 @@ class KiosksController < ApplicationController
   # GET /kiosks/1
   # GET /kiosks/1.xml
   def show
-    
-    if @client.authorized?
+    if Rails.env == "development"
       @kiosk = Kiosk.find(params[:id])
-
       respond_to do |format|
         format.html { render :layout => "kiosk" } # show.html.erb
         format.xml  { render :xml => @kiosk }
       end
     else
-      redirect_to connect_url
+      if @client.authorized?
+        @kiosk = Kiosk.find(params[:id])
+        respond_to do |format|
+          format.html { render :layout => "kiosk" } # show.html.erb
+          format.xml  { render :xml => @kiosk }
+        end
+      else
+        redirect_to connect_url
+      end      
     end
   end
 
@@ -62,7 +68,7 @@ class KiosksController < ApplicationController
   # PUT /kiosks/1.xml
   def update
     @kiosk = Kiosk.find(params[:id])
-
+    
     respond_to do |format|
       if @kiosk.update_attributes(params[:kiosk])
         format.html { redirect_to(@kiosk, :notice => 'Kiosk was successfully updated.') }

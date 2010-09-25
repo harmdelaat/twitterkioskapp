@@ -2,9 +2,12 @@
 
   <% form.inputs do %>
     <%= form.input :name %>
+    <%= form.input :fxs, :as => :check_boxes %>
+    <%= form.input :speed %>
     <%= form.input :background, :as => :file %>
   <% end %>
   <% form.buttons do %>
     <%= form.commit_button %>
   <% end %>
 <% end %>
+
