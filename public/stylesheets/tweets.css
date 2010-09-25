@@ -370,7 +370,7 @@ body {
   background-color: #5C7890; /* fallback color */
 }
 
-#signup_submit {
+.button {
 background: #FA2 url(http://s.twimg.com/a/1285282355/images/fronts/bg-btn-signup.png) repeat-x 0px 0px;
 border: 1px solid #FA2;
 border-bottom-left-radius: 5px 5px;
