@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  after_sign_in_path_for kiosks_url
+  
+  
   protected
   def set_client
     logger.debug("setting client")
