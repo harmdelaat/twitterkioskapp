@@ -10,6 +10,7 @@ gem 'twitter_oauth'
 gem 'devise'
 gem 'paperclip'
 gem 'formtastic', '~> 1.1.0'
+gem 'aws-s3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
